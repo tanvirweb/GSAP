@@ -21,6 +21,18 @@ tl.from(".section-1 :is(h1, p)", {
     yoyo: true
 });
 
+gsap.to(".section-1 h1 span span", {
+    left: 0,
+    ease: "power1.inOut",
+    scrollTrigger: {
+      trigger: ".section-1 h1",
+      scroller: "body",
+      start: "top 42%",
+      end: "top 30%",
+      scrub: 1
+    }
+})
+
 // Timeline for animations triggered by scrolling to section 2
 const tl2 = gsap.timeline({
     scrollTrigger: {
@@ -29,27 +41,59 @@ const tl2 = gsap.timeline({
         start: "top 50%"
     }
 });
-tl2.from(".section-2 p:nth-child(1)", {
+tl2.from(".section-2 p", {
     duration: 1,
-    y: 200,
-    opacity: 0
+    opacity: 0,
+    stagger: 1
 })
-.from(".section-2-shape div:nth-child(2)", {
+
+gsap.from(".balance svg", {
+    rotation: -25,
+    transformOrigin: "center center",
+    scrollTrigger: {
+        trigger: ".section-2",
+        scroller: "body",
+        start: "top 25%",
+        end: "top 0%",
+        scrub: 2
+    }
+})
+
+gsap.from(".balance svg rect", {
+    width: 0,
+    transformOrigin: "center center",
+    scrollTrigger: {
+        trigger: ".section-2",
+        scroller: "body",
+        start: "top 25%",
+        end: "top 0%",
+        scrub: 2
+    }
+})
+
+gsap.from(".balance svg circle", {
     scale: 0,
-    duration: 1.5
+    transformOrigin: "center center",
+    scrollTrigger: {
+        trigger: ".section-2",
+        scroller: "body",
+        start: "top 25%",
+        end: "top 0%",
+        scrub: 2
+    }
 })
-.from(".section-2-shape div:nth-child(1)", {
-    left: "20%",
-    top: "45%",
-    aspectRatio: 0,
-    rotate: -45,
-    duration: 1
+
+gsap.from(".balance svg path", {
+    opacity: 0,
+    transformOrigin: "center center",
+    scrollTrigger: {
+        trigger: ".section-2",
+        scroller: "body",
+        start: "top 25%",
+        end: "top 0%",
+        scrub: 2
+    }
 })
-.from(".section-2 p:nth-child(2)", {
-    duration: 1,
-    y: 200,
-    opacity: 0
-});
 
 // Timeline for animations triggered by scrolling to section 3
 const tl3 = gsap.timeline({
@@ -60,35 +104,20 @@ const tl3 = gsap.timeline({
     }
 });
 tl3.from(".section-3 .top p", {
-    y: 50,
     duration: 1,
-    stagger: 0.5,
+    stagger: 1,
     opacity: 0
 })
-.to(".section-3 .part-1 .line", {
-    height: "30px",
-    duration: 1
+
+gsap.from(".section-3 .line", {
+    height: 0,
+    duration: 1,
+    stagger: 0.3,
+    scrollTrigger: {
+        trigger: ".section-3",
+        scroller: "body",
+        start: "top 5%",
+        end: "top -10%",
+        scrub: 3
+    }
 })
-.from(".section-3 .part-1 p", {
-    opacity: 0,
-    duration: 0.5,
-    y: 10
-})
-.to(".section-3 .part-2 .line", {
-    height: "90px",
-    duration: 1
-})
-.from(".section-3 .part-2 p", {
-    opacity: 0,
-    duration: 0.5,
-    y: 10
-})
-.to(".section-3 .part-3 .line", {
-    height: "420px",
-    duration: 1
-})
-.from(".section-3 .part-3 p", {
-    opacity: 0,
-    duration: 0.5,
-    y: 10
-});

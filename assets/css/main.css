@@ -35,12 +35,13 @@ section {
     display: inline-flex;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 }
 
 .section-1 h1 span span {
     background-color: hsl(0, 97%, 53%);
     height: 100%;
-    left: 0;
+    left: -100%;
     position: absolute;
     top: 0;
     width: 100%;
@@ -91,34 +92,14 @@ section {
     margin-bottom: 30px;
 }
 
-.section-2-shape {
-    position: relative;
-    isolation: isolate;
+.balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.section-2-shape div {
-    position: absolute;
-    transform: translate(-50%, -50%);
-}
-
-.section-2-shape div:nth-child(1) {
-    aspect-ratio: 4/1;
-    background-color: hsl(0, 0%, 100%);
-    left: 50%;
-    top: 50%;
-    height: 100px;
-    z-index: -1;
-}
-
-.section-2-shape div:nth-child(2) {
-    aspect-ratio: 1;
-    background-color: hsl(0, 97%, 53%);
-    left: 50%;
-    top: 60%;
-    border-radius: 50%;
-    height: 120px;
-    mix-blend-mode: difference;
-    z-index: 1;
+.balance svg {
+    max-width: 100%;
 }
 
 .section-3 {
@@ -164,12 +145,21 @@ section {
 
 .section-3 .part-1 .line {
     background-color: hsl(0, 100%, 50%);
+    height: 100px;
 }
 
 .section-3 .part-2 .line {
     background-color: hsl(106, 100%, 50%);
+    height: 230px;
 }
 
 .section-3 .part-3 .line {
     background-color: hsl(68, 100%, 50%);
+    height: 380px;
+}
+
+.section-4 .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
