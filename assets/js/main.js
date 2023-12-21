@@ -111,13 +111,66 @@ tl3.from(".section-3 .top p", {
 
 gsap.from(".section-3 .line", {
     height: 0,
-    duration: 1,
     stagger: 0.3,
     scrollTrigger: {
         trigger: ".section-3",
+        pin: ".section-3",
         scroller: "body",
-        start: "top 5%",
-        end: "top -10%",
+        start: "top 0%",
+        end: "top -80%",
         scrub: 3
+    }
+})
+
+// Timeline for animations triggered by scrolling to section 4
+const tl4 = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section-4",
+        scroller: "body",
+        start: "top 50%"
+    }
+});
+tl4.from(".section-4 h2", {
+    duration: 1,
+    opacity: 0
+})
+
+gsap.from(".section-4 .arrow path", {
+    opacity: 0,
+    duration: 1,
+    stagger: 0.3,
+    scrollTrigger: {
+        trigger: ".section-4",
+        scroller: "body",
+        start: "top 15%",
+        end: "top 5%",
+        scrub: 3
+    }
+})
+
+// Timeline for animations triggered by scrolling to section 5
+gsap.from(".section-5 .circle", {
+    scale: 0,
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".section-5",
+        scroller: "body",
+        start: "top 45%",
+        end: "top 40%",
+        scrub: 3
+    }
+})
+
+gsap.from(".section-5 .circle span", {
+    top: "100%",
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".section-5",
+        pin: ".section-5",
+        scroller: "body",
+        start: "top 0",
+        end: "top -30%",
+        scrub: 3,
+        markers: true
     }
 })

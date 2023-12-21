@@ -158,8 +158,58 @@ section {
     height: 380px;
 }
 
-.section-4 .container {
-    display: flex;
-    flex-direction: column;
+.section-4 {
+    background-color: aqua;
+}
+
+:is(.section-4, .section-5) .container {
+    display: grid;
     height: 100vh;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 100px 15px;
+}
+
+.section-4 h2 {
+    font-size: 2.5rem;
+}
+
+.section-5 {
+    background-color: hsl(208, 85%, 42%);
+    color: hsl(0, 0%, 100%);
+}
+
+.section-5 p {
+    font-size: 9rem;
+    font-weight: 900;
+}
+
+.section-5 .container div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-5 .container div:nth-child(2) {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.section-5 .circle {
+    aspect-ratio: 1;
+    background-color: red;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    width: 60%;
+}
+
+.section-5 .circle span {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: gainsboro;
 }
