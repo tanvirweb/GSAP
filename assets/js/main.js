@@ -67,7 +67,7 @@ gsap.from(".balance svg rect", {
         scroller: "body",
         start: "top 25%",
         end: "top 0%",
-        scrub: 2
+        scrub: 1
     }
 })
 
@@ -79,19 +79,7 @@ gsap.from(".balance svg circle", {
         scroller: "body",
         start: "top 25%",
         end: "top 0%",
-        scrub: 2
-    }
-})
-
-gsap.from(".balance svg path", {
-    opacity: 0,
-    transformOrigin: "center center",
-    scrollTrigger: {
-        trigger: ".section-2",
-        scroller: "body",
-        start: "top 25%",
-        end: "top 0%",
-        scrub: 2
+        scrub: 1
     }
 })
 
@@ -117,7 +105,7 @@ gsap.from(".section-3 .line", {
         pin: ".section-3",
         scroller: "body",
         start: "top 0%",
-        end: "top -80%",
+        end: "top -100%",
         scrub: 3
     }
 })
@@ -169,8 +157,59 @@ gsap.from(".section-5 .circle span", {
         pin: ".section-5",
         scroller: "body",
         start: "top 0",
-        end: "top -30%",
+        end: "top -70%",
         scrub: 3,
-        markers: true
     }
+})
+
+// Timeline for animations triggered by scrolling to section 7
+const tl7 = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section-7",
+        scroller: "body",
+        start: "top 50%"
+    }
+});
+tl7.from(".section-7 .container > div", {
+    duration: 1,
+    opacity: 0,
+    stagger: 0.8
+})
+
+gsap.from(".section-7 .dots div span", {
+    scale: 0.2,
+    scrollTrigger: {
+        trigger: ".section-7",
+        scroller: "body",
+        start: "top 15%",
+        end: "top 5%",
+        scrub: 3
+    }
+})
+
+const tl71 = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section-7",
+        pin: ".section-7",
+        scroller: "body",
+        start: "top 0%",
+        end: "top -75%",
+        scrub: 3
+    }
+});
+
+tl71.to(".section-7 .dots div:nth-last-child(-n + 4) span", {
+    backgroundColor: "rgb(255, 41, 41)",
+})
+
+tl71.to(".section-7 .dots div:nth-last-child(-n + 8) span", {
+    backgroundColor: "rgb(255, 41, 41)",
+})
+
+tl71.to(".section-7 .dots div:nth-last-child(-n + 12) span", {
+    backgroundColor: "rgb(255, 41, 41)",
+})
+
+tl71.to(".section-7 .dots div:nth-last-child(-n + 13) span", {
+    backgroundColor: "rgb(255, 41, 41)",
 })
